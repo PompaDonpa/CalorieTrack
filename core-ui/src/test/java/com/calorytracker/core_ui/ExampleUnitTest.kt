@@ -1,4 +1,4 @@
-package com.calorietracker.mylibrary
+package com.calorytracker.core_ui
 
 import org.junit.Test
 
