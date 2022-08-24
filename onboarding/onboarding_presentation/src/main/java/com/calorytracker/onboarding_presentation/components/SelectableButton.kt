@@ -1,4 +1,4 @@
-package com.colorytracker.onboarding_presentation.components
+package com.calorytracker.onboarding_presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

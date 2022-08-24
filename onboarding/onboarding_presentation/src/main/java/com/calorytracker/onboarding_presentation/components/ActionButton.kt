@@ -1,4 +1,4 @@
-package com.colorytracker.onboarding_presentation.components
+package com.calorytracker.onboarding_presentation.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,7 +16,7 @@ fun ActionButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    isEnabled: Boolean = false,
+    isEnabled: Boolean = true,
     textStyle: TextStyle = MaterialTheme.typography.button
 ){
     Button(

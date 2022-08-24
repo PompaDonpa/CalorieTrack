@@ -1,4 +1,4 @@
-package com.calorytracker.onboarding_presentation
+package com.calorytracker.onboarding_presentation.welcome
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -12,7 +12,7 @@ import com.calorytracker.core.R
 import com.calorytracker.core.navigation.Route
 import com.calorytracker.core.util.UiEvent
 import com.calorytracker.core_ui.LocalSpacing
-import com.colorytracker.onboarding_presentation.components.ActionButton
+import com.calorytracker.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(
@@ -33,8 +33,8 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height((spacing.spaceMedium)))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { onNavigate(UiEvent.Navigate(Route.AGE)) },
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+            onClick = { onNavigate(UiEvent.Navigate(Route.GENDER)) },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
 }
