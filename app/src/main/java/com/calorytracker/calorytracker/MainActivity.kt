@@ -20,6 +20,7 @@ import com.calorytracker.onboarding_presentation.welcome.WelcomeScreen
 import com.calorytracker.onboarding_presentation.gender.GenderScreen
 import com.calorytracker.onboarding_presentation.goal.GoalScreen
 import com.calorytracker.onboarding_presentation.height.HeightScreen
+import com.calorytracker.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.calorytracker.onboarding_presentation.weight.WeightScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -65,7 +66,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
-
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.ACTIVITY) {
                             ActivityScreen(onNavigate = navController::navigate)

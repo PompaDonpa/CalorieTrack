@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.calorytracker.core.domain.model.ActivityLevel
 import com.calorytracker.core.domain.model.GoalType
 import com.calorytracker.core.domain.preferences.Preferences
 import com.calorytracker.core.navigation.Route
