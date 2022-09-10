@@ -2,7 +2,7 @@ package com.calorytracker.tracker_data.di
 
 import android.app.Application
 import androidx.room.Room
-import com.calorytracker.tracker_data.local.entity.TrackerDatabase
+import com.calorytracker.tracker_data.local.TrackerDatabase
 import com.calorytracker.tracker_data.remote.OpenFoodApi
 import com.calorytracker.tracker_data.repository.TrackerRepositoryImpl
 import com.calorytracker.tracker_domain.repository.TrackerRepository

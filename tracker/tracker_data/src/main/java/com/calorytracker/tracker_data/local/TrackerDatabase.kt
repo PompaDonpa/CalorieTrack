@@ -1,8 +1,8 @@
-package com.calorytracker.tracker_data.local.entity
+package com.calorytracker.tracker_data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.calorytracker.tracker_data.local.TrackerDao
+import com.calorytracker.tracker_data.local.entity.TrackedFoodEntity
 
 
 @Database(

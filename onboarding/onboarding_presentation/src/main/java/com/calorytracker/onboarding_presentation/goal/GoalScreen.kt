@@ -79,11 +79,11 @@ fun GoalScreen(
                 Spacer(modifier = Modifier.width(spacing.spaceSmall))
                 SelectableButton(
                     text = stringResource(id = R.string.gain),
-                    isSelected = viewModel.selectedGoal is GoalType.GainWeigth,
+                    isSelected = viewModel.selectedGoal is GoalType.GainWeight,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
-                        viewModel.onGoalTypeSelect(GoalType.GainWeigth)
+                        viewModel.onGoalTypeSelect(GoalType.GainWeight)
                     },
                     textStyle = MaterialTheme.typography.button.copy(
                         fontWeight = FontWeight.Normal

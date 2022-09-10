@@ -1,12 +1,10 @@
 package com.calorytracker.tracker_data.local
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.calorytracker.tracker_data.local.entity.TrackedFoodEntity
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface TrackerDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
