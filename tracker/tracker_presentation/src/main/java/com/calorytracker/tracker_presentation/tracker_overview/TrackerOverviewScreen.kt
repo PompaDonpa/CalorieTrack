@@ -9,9 +9,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.calorytracker.core.util.UiEvent
 import com.calorytracker.core_ui.LocalSpacing
 import androidx.compose.foundation.lazy.items
-import com.calorytracker.tracker_presentation.tracker_overview.components.DaySelector
-import com.calorytracker.tracker_presentation.tracker_overview.components.ExpandableMeal
-import com.calorytracker.tracker_presentation.tracker_overview.components.NutrientsHeader
+import androidx.compose.ui.res.stringResource
+import com.calorytracker.core.R
+import com.calorytracker.tracker_presentation.tracker_overview.components.*
 
 @Composable
 fun TrackerOverviewScreen(
@@ -49,7 +49,39 @@ fun TrackerOverviewScreen(
                 onToggleClick = {
                     viewModel.onEvent(TrackerOverviewEvent.OnToggleMealClick(meal))
                 },
-                content = { /*TODO*/ },
+                content = {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxWidth()
+                            .padding(horizontal = spacing.spaceSmall)
+                    ) {
+                        state.trackedFoods.forEach { food ->
+                            TrackedFoodItem(
+                                trackedFood = food,
+                                onDeleteClick = {
+                                    viewModel.onEvent(
+                                        TrackerOverviewEvent
+                                            .OnDeleteTrackedFoodClick(food)
+                                    )
+                                }
+                            )
+                            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+                        }
+                        AddButton(
+                            text = stringResource(
+                                id =  R.string.add_meal,
+                                meal.name.asString(context)
+                            ),
+                            onClick = {
+                                viewModel.onEvent(
+                                    TrackerOverviewEvent.OnAddFoodClick(meal)
+                                )
+                            },
+                        modifier = Modifier.fillMaxWidth()
+                        )
+                    }
+                },
                 modifier = Modifier.fillMaxWidth()
             )
 
