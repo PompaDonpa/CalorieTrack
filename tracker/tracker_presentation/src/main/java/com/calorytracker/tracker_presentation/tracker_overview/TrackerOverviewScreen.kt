@@ -8,7 +8,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.calorytracker.core.util.UiEvent
 import com.calorytracker.core_ui.LocalSpacing
+import androidx.compose.foundation.lazy.items
 import com.calorytracker.tracker_presentation.tracker_overview.components.DaySelector
+import com.calorytracker.tracker_presentation.tracker_overview.components.ExpandableMeal
 import com.calorytracker.tracker_presentation.tracker_overview.components.NutrientsHeader
 
 @Composable
@@ -40,6 +42,17 @@ fun TrackerOverviewScreen(
                 .padding(horizontal = spacing.spaceMedium)
             )
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        }
+        items(state.meals) { meal ->
+            ExpandableMeal(
+                meal = meal,
+                onToggleClick = {
+                    viewModel.onEvent(TrackerOverviewEvent.OnToggleMealClick(meal))
+                },
+                content = { /*TODO*/ },
+                modifier = Modifier.fillMaxWidth()
+            )
+
         }
     }
 }
