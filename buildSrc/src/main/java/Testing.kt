@@ -18,7 +18,7 @@ object Testing {
     private const val turbineVersion = "0.9.0"
     const val turbine = "app.cash.turbine:turbine:$turbineVersion"
 
-    private const val mockWebServerVersion = "4.10.0"
+    private const val mockWebServerVersion = "5.0.0-alpha.10"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 
     const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Compose.composeVersion}"
