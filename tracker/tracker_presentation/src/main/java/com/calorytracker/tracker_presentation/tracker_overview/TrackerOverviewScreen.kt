@@ -11,9 +11,11 @@ import com.calorytracker.core_ui.LocalSpacing
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.res.stringResource
+import coil.annotation.ExperimentalCoilApi
 import com.calorytracker.core.R
 import com.calorytracker.tracker_presentation.tracker_overview.components.*
 
+@ExperimentalCoilApi
 @Composable
 fun TrackerOverviewScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
@@ -30,7 +32,6 @@ fun TrackerOverviewScreen(
             }
         }
     }
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -41,7 +42,7 @@ fun TrackerOverviewScreen(
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             DaySelector(
                 date = state.date,
-                onPrevDayClick = {
+                onPreviousDayClick = {
                     viewModel.onEvent(TrackerOverviewEvent.OnPreviousDayClick)
                 },
                 onNextDayClick = {
@@ -62,7 +63,6 @@ fun TrackerOverviewScreen(
                 content = {
                     Column(
                         modifier = Modifier
-                            .fillMaxWidth()
                             .fillMaxWidth()
                             .padding(horizontal = spacing.spaceSmall)
                     ) {

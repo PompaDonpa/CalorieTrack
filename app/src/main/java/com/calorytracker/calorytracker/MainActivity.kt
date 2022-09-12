@@ -17,6 +17,7 @@ import androidx.navigation.navArgument
 import coil.annotation.ExperimentalCoilApi
 import com.calorytracker.calorytracker.navigation.navigate
 import com.calorytracker.calorytracker.ui.theme.CaloryTrackerTheme
+import com.calorytracker.core.domain.preferences.Preferences
 import com.calorytracker.core.navigation.Route
 import com.calorytracker.onboarding_presentation.activity.ActivityScreen
 import com.calorytracker.onboarding_presentation.age.AgeScreen
@@ -29,14 +30,20 @@ import com.calorytracker.onboarding_presentation.weight.WeightScreen
 import com.calorytracker.tracker_presentation.search.SearchScreen
 import com.calorytracker.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @ExperimentalComposeUiApi
 @ExperimentalCoilApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var preferences: Preferences
+
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val shouldShowOnboarding = preferences.loadShouldShowOnboarding()
         setContent {
             CaloryTrackerTheme {
                 val navController = rememberNavController()
@@ -47,7 +54,9 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(
                         navController = navController,
-                        startDestination = Route.WELCOME
+                        startDestination = if(shouldShowOnboarding) {
+                            Route.WELCOME
+                        } else Route.TRACKER_OVERVIEW
                     ) {
                         composable(Route.WELCOME) {
                             WelcomeScreen(onNavigate = navController::navigate)
@@ -115,8 +124,8 @@ class MainActivity : ComponentActivity() {
                                 SearchScreen(
                                     scaffoldState = scaffoldState,
                                     mealName = mealName,
-                                    dayOfMonth = dayOfMonth,
                                     month = month,
+                                    dayOfMonth = dayOfMonth,
                                     year = year,
                                     onNavigateUp = {
                                         navController.navigateUp()

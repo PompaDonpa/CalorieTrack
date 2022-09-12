@@ -27,8 +27,8 @@ class WeightViewModel @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onWeightEnter(height: String) {
-        if(height.length <= 5) {
+    fun onWeightEnter(weight: String) {
+        if(weight.length <= 5) {
             this.weight = weight
         }
     }

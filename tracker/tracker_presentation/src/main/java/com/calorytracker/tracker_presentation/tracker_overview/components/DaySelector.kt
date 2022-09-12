@@ -20,7 +20,7 @@ import java.time.LocalDate
 @Composable
 fun DaySelector(
     date: LocalDate,
-    onPrevDayClick: () -> Unit,
+    onPreviousDayClick: () -> Unit,
     onNextDayClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -29,7 +29,7 @@ fun DaySelector(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ){
-        IconButton(onClick = onPrevDayClick) {
+        IconButton(onClick = onPreviousDayClick) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
                 contentDescription = stringResource(id = R.string.previous_day)
