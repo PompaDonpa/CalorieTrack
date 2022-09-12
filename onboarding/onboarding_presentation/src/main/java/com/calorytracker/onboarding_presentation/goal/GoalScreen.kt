@@ -12,17 +12,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.calorytracker.core.util.UiEvent
 import com.calorytracker.core_ui.LocalSpacing
 import com.calorytracker.core.R
-import com.calorytracker.core.domain.model.Gender
 import com.calorytracker.onboarding_presentation.components.SelectableButton
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import com.calorytracker.core.domain.model.ActivityLevel
 import com.calorytracker.core.domain.model.GoalType
 import com.calorytracker.onboarding_presentation.components.ActionButton
 
 @Composable
 fun GoalScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: GoalViewModel = hiltViewModel()
 
 ){
@@ -30,7 +28,7 @@ fun GoalScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect{ event ->
             when(event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }

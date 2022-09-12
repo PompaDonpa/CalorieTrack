@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.calorytracker.core.domain.preferences.Preferences
-import com.calorytracker.core.navigation.Route
 import com.calorytracker.core.util.UiEvent
 import com.calorytracker.core.util.UiText
 import com.calorytracker.onboarding_presentation.R
@@ -44,7 +43,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-                _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
+                _uiEvent.send(UiEvent.Success)
         }
     }
 

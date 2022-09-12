@@ -6,9 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.calorytracker.core.domain.model.ActivityLevel
-import com.calorytracker.core.domain.model.Gender
 import com.calorytracker.core.domain.preferences.Preferences
-import com.calorytracker.core.navigation.Route
 import com.calorytracker.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -33,7 +31,7 @@ class ActivityViewModel @Inject constructor(
     fun onNextClick() {
         viewModelScope.launch{
             preferences.saveActivityLevel(selectedActivityLevel)
-            _uiEvent.send(UiEvent.Navigate(Route.GOAL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }
